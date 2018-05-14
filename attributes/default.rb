@@ -165,4 +165,4 @@ default['proftpd-ii']['sftp_userauthorizedkeys'] = nil
 default['proftpd-ii']['sftp_hostkeys'] = ['/etc/ssh/ssh_host_rsa_key']
 
 # What do you want to allow to access the default site?
-default['proftpd-ii']['all_site_limit'] = 'AllowAll'
+default['proftpd-ii']['default_site_limit_login'] = 'AllowAll'

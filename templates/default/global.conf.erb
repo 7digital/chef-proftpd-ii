@@ -10,8 +10,12 @@
 
   # Allow users to chmod files
   <Limit ALL SITE_CHMOD>
-    <%= node['proftpd-ii']['all_site_limit'] %>
+    AllowAll
   </Limit>
+  <Limit LOGIN>
+    <%= node['proftpd-ii']['default_site_limit_login'] %>
+  </Limit>
+
 
   ServerIdent                     <% if node['proftpd-ii']['server_ident'] %>on "<%= node['proftpd-ii']['server_ident'] %>"<% else %>off<% end %>
 
