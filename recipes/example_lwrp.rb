@@ -43,9 +43,3 @@ end
 
 # sample sftp configuration (if package is installed)
 include_recipe 'proftpd-ii::sftp'
-
-proftpd_vhost 'sftp' do
-  port 2222
-  sftp true
-  notifies :restart, 'service[proftpd]', :delayed
-end

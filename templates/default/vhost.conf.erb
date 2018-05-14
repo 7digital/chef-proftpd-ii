@@ -66,4 +66,9 @@
     SFTPCompression delayed
   </IfModule>
 <% end %>
+
+
+  <% @extra_options.each do | attribute | %>
+    <%= attribute['key'] %> <%= attribute['value'] %>
+  <% end %>
 </VirtualHost>

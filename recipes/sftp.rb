@@ -29,5 +29,11 @@ proftpd_module 'sftp' do
 end
 
 proftpd_vhost 'sftp' do
-    port 2222
+  port 2222
+  sftp true
+  extra_options [
+    { 'key' => 'SFTPHostKey',
+      'value' => '/etc/ssh/ssh_host_rsa_key' }
+  ]
+  notifies :restart, 'service[proftpd]', :delayed
 end
