@@ -33,4 +33,5 @@ template "#{node['proftpd-ii']['conf_dir']}/conf-available/sftp.conf" do
   group node['proftpd-ii']['group']
   mode 0o640
   source 'sftp.conf.erb'
+  notifies :restart, 'service[proftpd]', 'delayed'
 end
