@@ -43,6 +43,9 @@
 <% end %>
 
 <% if @sftp %>
+  <Limit LOGIN>
+    AllowAll
+  </Limit>
   <IfModule mod_sftp.c>
     SFTPEngine on
     SFTPLog <%= node['proftpd-ii']['log_dir'] %>/sftp.log

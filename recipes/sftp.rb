@@ -28,10 +28,6 @@ end
 proftpd_module 'sftp' do
 end
 
-template "#{node['proftpd-ii']['conf_dir']}/conf-available/sftp.conf" do
-  owner node['proftpd-ii']['user']
-  group node['proftpd-ii']['group']
-  mode 0o640
-  source 'sftp.conf.erb'
-  notifies :restart, 'service[proftpd]', 'delayed'
+proftpd_vhost 'sftp' do
+    port 2222
 end
