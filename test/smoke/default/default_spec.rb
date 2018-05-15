@@ -13,3 +13,4 @@ describe port(2222) do
   it { should be_listening }
   its('processes') { should include 'proftpd' }
 end
+
