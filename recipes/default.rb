@@ -44,7 +44,7 @@ user node['proftpd-ii']['user'] do
   home node['proftpd-ii']['user_dir']
   shell node['proftpd-ii']['user_shell']
   notifies :stop, 'service[proftpd]', :before
-  notifies :start, 'service[proftpd]', :immediately
+  notifies :start, 'service[proftpd]', :delayed
 end
 
 # directories
@@ -121,6 +121,6 @@ end
 
 # service
 service 'proftpd' do
-  action %i[enable start]
+  action :nothing
   supports status: true, restart: true, reload: true
 end

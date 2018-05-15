@@ -23,6 +23,7 @@ default_action :create
 
 attribute :module_dir,        kind_of: String,                  default: node['proftpd-ii']['mods_dir']
 attribute :module_name,       kind_of: String,                  name_attribute: true
-attribute :enable,            kind_of: [TrueClass, FalseClass], default: true
+attribute :template, kind_of: String
+attribute :enable, kind_of: [TrueClass, FalseClass], default: true
 
 attr_accessor :exists
