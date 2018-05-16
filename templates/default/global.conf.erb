@@ -12,6 +12,10 @@
   <Limit ALL SITE_CHMOD>
     AllowAll
   </Limit>
+  <Limit LOGIN>
+    <%= node['proftpd-ii']['default_site_limit_login'] %>
+  </Limit>
+
 
   ServerIdent                     <% if node['proftpd-ii']['server_ident'] %>on "<%= node['proftpd-ii']['server_ident'] %>"<% else %>off<% end %>
 
@@ -35,7 +39,7 @@
   TimeoutIdle                     <%= node['proftpd-ii']['timeout_idle'] %>
 
   # Ports when using Passive Mode
-  PassivePorts                    <%= node['proftpd-ii']['passive_ports'] %> 
+  PassivePorts                    <%= node['proftpd-ii']['passive_ports'] %>
 
   # Umask 022 is a good standard umask to prevent new dirs and files
   # from being group and world writable.

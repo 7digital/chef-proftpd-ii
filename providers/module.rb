@@ -25,6 +25,9 @@ end
 use_inline_resources
 
 action :create do
+  template_name = new_resource.template ? new_resource.template : "mods/#{new_resource.name}.conf.erb"
+  template_cookbook = new_resource.template ? new_resource.cookbook_name : 'proftpd-ii'
+
   f = file "#{node['proftpd-ii']['conf_dir']}/mods-available/#{new_resource.name}.load" do
     owner node['proftpd-ii']['user']
     group node['proftpd-ii']['group']
@@ -36,7 +39,8 @@ action :create do
     owner node['proftpd-ii']['user']
     group node['proftpd-ii']['group']
     mode 0o640
-    source ["default/mods/#{new_resource.name}.conf.erb", 'default/mods/generic.conf.erb']
+    source [template_name, 'default/mods/generic.conf.erb']
+    cookbook template_cookbook
   end
 
   if new_resource.enable

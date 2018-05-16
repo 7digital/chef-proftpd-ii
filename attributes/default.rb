@@ -161,4 +161,10 @@ default['proftpd-ii']['tls_ciphers'] = 'ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM
 # use an user authorized keys file to permit users to login using keys
 default['proftpd-ii']['sftp_userauthorizedkeys'] = nil
 
+# What keys will the host use to identify itself via sftp?
 default['proftpd-ii']['sftp_hostkeys'] = ['/etc/ssh/ssh_host_rsa_key']
+
+default['proftpd-ii']['sftp_extraoptions '] = []
+
+# What do you want to allow to access the default site?
+default['proftpd-ii']['default_site_limit_login'] = 'AllowAll'

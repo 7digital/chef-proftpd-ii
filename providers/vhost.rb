@@ -54,7 +54,8 @@ action :create do
       ldap_group_filter: new_resource.ldap_group_filter,
       ldap_extra_options: new_resource.ldap_extra_options,
       sftp: new_resource.sftp,
-      sftp_userauthorizedkeys: new_resource.sftp_userauthorizedkeys
+      sftp_userauthorizedkeys: new_resource.sftp_userauthorizedkeys,
+      extra_options: new_resource.extra_options
     )
     cookbook new_resource.cookbook
     source new_resource.template
