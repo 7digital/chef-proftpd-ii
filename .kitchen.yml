@@ -25,3 +25,14 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
+      proftpd-ii:
+        extraoptions:
+          -
+            key: SocketBindTight
+            value: "On"
+          -
+            key: DefaultAddress
+            value: 127.0.0.1
+          -
+            key: UseIpV6
+            value: "Off"

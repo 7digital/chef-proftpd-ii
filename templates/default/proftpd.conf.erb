@@ -87,6 +87,11 @@ SystemLog                       <%= node['proftpd-ii']['log_dir'] %>/proftpd.log
 TransferLog                     <%= node['proftpd-ii']['log_dir'] %>/xfer.log
 DebugLevel                      <%= node['proftpd-ii']['debug_level'] %>
 
+
+# Extra Options
+<% @extra_options.each do | attribute | %>
+<%= attribute['key'] %> <%= attribute['value'] %>
+<% end %>
 # Load enabled modules and their configuration
 Include                         <%= node['proftpd-ii']['conf_dir'] %>/conf-enabled/*.conf
 

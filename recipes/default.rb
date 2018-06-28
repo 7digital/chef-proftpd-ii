@@ -96,6 +96,8 @@ template "#{node['proftpd-ii']['conf_dir']}/proftpd.conf" do
   group node['proftpd-ii']['group']
   mode 0o640
   source 'proftpd.conf.erb'
+  variables extra_options: node['proftpd-ii']['extraoptions']
+
   notifies :reload, 'service[proftpd]', :delayed
 end
 

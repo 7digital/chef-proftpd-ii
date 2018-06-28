@@ -155,6 +155,9 @@ default['proftpd-ii']['log_format_auth'] = '%v [%P] %h %t \"%r\" %s'
 # Debug Level for the daemon
 default['proftpd-ii']['debug_level'] = 0
 
+# Main Extra Options
+default['proftpd-ii']['extraoptions'] =[]
+
 # What ciphers will TLS use when negotiating with the client
 default['proftpd-ii']['tls_ciphers'] = 'ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+EXP'
 

@@ -13,3 +13,9 @@ describe port(2222) do
   it { should be_listening }
   its('processes') { should include 'proftpd' }
 end
+
+describe file('/etc/proftpd/proftpd.conf') do
+  its('content') { should match 'SocketBindTight On' }
+  its('content') { should match 'DefaultAddress 127.0.0.1' }
+  its('content') { should match 'UseIpV6 Off' }
+end
